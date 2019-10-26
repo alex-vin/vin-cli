@@ -1,0 +1,19 @@
+{
+  "name": "vin-cli",
+  "version": "1.0.0",
+  "description": "a tool for creating react-template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-vin/vin-cli.git"
+  },
+  "author": "Alex-vin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-vin/vin-cli/issues"
+  },
+  "homepage": "https://github.com/alex-vin/vin-cli#readme"
+}
