@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+const fs  = require('fs')
+const path = require('path')
+const chalk = require('chalk')
+const program = require('commander')
+
+const project = path.join(__dirname, '../tsconfig.json')
+const dev = fs.existsSync(project)
+
+if (dev) require('ts-node').register({project})
+
+program
+  .version(require('../package.json').version, '-v, --version')
+
+  // 定义使用方法
+  program.usage('<command>')
+
+  // init指令
+  program
+    .command('init')
+    .description('生成模板文件')
+    .action(() => {
+      require('../src/init').run()
+      .catch(err => { console.log(chalk.red(err)) })
+    })
+
+    // add指令
+    program
+      .command('add')
+      .description('添加模板文件')
+      .action(() => {
+        require('../src/add').run()
+        .catch(err => { console.log(chalk.red(err)) })
+      })
+
+  // 处理参数和提供帮助信息
+  program
+    .parse(process.argv)
+
+  if (!program.args.length) program.help()
